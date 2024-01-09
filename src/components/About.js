@@ -1,33 +1,21 @@
-import React,{useState} from "react";
+import React from "react";
 
-export default function About() {
-    const [btntext,setbtntext] = useState("Enable Dark Mode");
-    const [myStyle,setMyStyle] =useState({
-        color: 'white',
-        backgroundColor: 'black',
-    });
+export default function About(props) {
+  // const [myStyle,setMyStyle] =useState({
+  //     color: 'black',
+  //     backgroundColor: 'white',
+  // });
 
-    const toggleStyle=()=>{
-        if(myStyle.color === 'white'){
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white',
-                boarder: '2px solid white',
-            });
-            setbtntext("Enable Dark Mode");
-        }
-        else{
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-                boarder: '2px solid white',
-            });
-            setbtntext("Enable Light Mode");
-        }
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "#041e34",
+    backgroundColor: props.mode === "dark" ? "#06355b" : "white",
+  };
 
-    }
   return (
-    <div className="container" style={myStyle}>
+    <div
+      className="container"
+      style={{ color: props.mode === "dark" ? "white" : "#042743" }}
+    >
       <h1 className="my-3">About us</h1>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
@@ -37,11 +25,11 @@ export default function About() {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="collapseOne"
               style={myStyle}
             >
-              Accordion Item #1
+              What are text utilities?
             </button>
           </h2>
           <div
@@ -49,15 +37,10 @@ export default function About() {
             class="accordion-collapse collapse show"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"  style={myStyle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div class="accordion-body" style={myStyle}>
+              Text utilities are tools and functions designed to manipulate and
+              analyze text data. They help automate tasks related to processing,
+              formatting, and extracting information from text.
             </div>
           </div>
         </div>
@@ -72,7 +55,7 @@ export default function About() {
               aria-controls="collapseTwo"
               style={myStyle}
             >
-              Accordion Item #2
+              How can text utilities benefit me?
             </button>
           </h2>
           <div
@@ -80,15 +63,10 @@ export default function About() {
             class="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"  style={myStyle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div class="accordion-body" style={myStyle}>
+              Text utilities can save you time and effort by automating
+              repetitive tasks. They are useful for tasks such as text cleaning,
+              data extraction, and content analysis.
             </div>
           </div>
         </div>
@@ -103,7 +81,7 @@ export default function About() {
               aria-controls="collapseThree"
               style={myStyle}
             >
-              Accordion Item #3
+              Which text manipulation functions do your utilities include?
             </button>
           </h2>
           <div
@@ -111,21 +89,95 @@ export default function About() {
             class="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"  style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div class="accordion-body" style={myStyle}>
+              Our text utilities cover a wide range of functions, including but
+              not limited to text cleaning, tokenization, stemming,
+              lemmatization, and sentiment analysis.
             </div>
           </div>
         </div>
-      </div>
-      <div className="container my-3">
-        <button onClick={toggleStyle} type="button" className="btn btn-primary">{btntext}</button>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour"
+              style={myStyle}
+            >
+              Can I integrate your text utilities into my own applications?
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body" style={myStyle}>
+              Yes, our text utilities are designed to be developer-friendly and
+              can be easily integrated into various applications through APIs.
+              Check our documentation for implementation details.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFive"
+              aria-expanded="false"
+              aria-controls="collapseFive"
+              style={myStyle}
+            >
+              Are there any programming languages or frameworks required to use
+              your text utilities?
+            </button>
+          </h2>
+          <div
+            id="collapseFive"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body" style={myStyle}>
+              Our text utilities are language-agnostic and can be implemented in
+              multiple programming languages. We provide libraries and APIs for
+              popular languages like Python, Java, and JavaScript.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseSix"
+              aria-expanded="false"
+              aria-controls="collapseSix"
+              style={myStyle}
+            >
+              Can your text utilities handle multilingual text?
+            </button>
+          </h2>
+          <div
+            id="collapseSix"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body" style={myStyle}>
+              Yes, our text utilities are designed to support multiple
+              languages. They are equipped with language detection and
+              processing capabilities to handle diverse linguistic content.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

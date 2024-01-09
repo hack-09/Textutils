@@ -11,7 +11,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState('light')
   const [alert, setAlert] = useState(null);
-  const [toggleMode, setToggleMode] = useState('light');
 
   const showAlert = (message,type) => {
     setAlert({
@@ -55,10 +54,10 @@ function App() {
     <Alert alert={alert}/>
     <div className="container">
     <Routes> 
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About  mode={mode}/>} />
     </Routes>
     <Routes>
-      <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} /> } />
+      <Route path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word counter, Character counter, Remove extra spaces" mode={mode} /> } />
     </Routes>
     </div >
     </BrowserRouter>
